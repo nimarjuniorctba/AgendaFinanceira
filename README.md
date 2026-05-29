@@ -1,240 +1,257 @@
-\# Agenda Financeira
+<div align="center">
 
+<h1>📅 Agenda Financeira</h1>
 
+<p>
+<strong>Sistema de Agendamento e Controle Financeiro</strong><br>
+Desenvolvido em PHP, MySQL, HTML, CSS, JavaScript e jQuery
+</p>
 
-Sistema de agendamento e controle financeiro desenvolvido em \*\*PHP, HTML, CSS, JavaScript e jQuery\*\*, voltado para empresas que trabalham com agendamentos de serviços em múltiplas pistas ou setores.
+<img src="screenshots/imagem01.png" width="100%">
 
+</div>
 
+<hr>
 
-\## Sobre o Projeto
+<h2>🚀 Sobre o Projeto</h2>
 
+<p>
+A Agenda Financeira é um sistema desenvolvido para empresas que trabalham com agendamentos de serviços em múltiplas pistas ou setores.
+</p>
 
+<p>
+O projeto foi baseado no repositório:
+</p>
 
-O projeto foi desenvolvido com base no repositório:
+<pre>
+diversos_php/agenda_modelo04
+</pre>
 
+<p>
+Além do gerenciamento de agendamentos, o sistema possui integração automática com o módulo financeiro, permitindo o controle completo das receitas e despesas da empresa.
+</p>
 
+<hr>
 
-`diversos\_php/agenda\_modelo04`
+<h2>✨ Principais Funcionalidades</h2>
 
+<table>
+<tr>
+<th>Funcionalidade</th>
+<th>Descrição</th>
+</tr>
 
+<tr>
+<td>📅 Agenda</td>
+<td>Controle completo de horários e agendamentos.</td>
+</tr>
 
-A aplicação permite gerenciar agendamentos de forma prática, associando serviços, clientes e movimentações financeiras em um único sistema.
+<tr>
+<td>🛣️ Pistas</td>
+<td>Cadastro de múltiplas pistas de atendimento.</td>
+</tr>
 
+<tr>
+<td>🧰 Serviços</td>
+<td>Cadastro de serviços com duração e cor personalizada.</td>
+</tr>
 
+<tr>
+<td>👥 Clientes</td>
+<td>Cadastro e gerenciamento de clientes.</td>
+</tr>
 
-\## Principais Funcionalidades
+<tr>
+<td>💰 Financeiro</td>
+<td>Geração automática de entradas financeiras.</td>
+</tr>
 
+<tr>
+<td>📄 Relatórios</td>
+<td>Exportação das movimentações em PDF.</td>
+</tr>
 
+</table>
 
-\### 📅 Agenda de Serviços
+<hr>
 
+<h2>📅 Agenda de Serviços</h2>
 
+<ul>
+<li>Cadastro de múltiplas pistas.</li>
+<li>Cadastro ilimitado de serviços.</li>
+<li>Duração personalizada por serviço.</li>
+<li>Cor personalizada para cada serviço.</li>
+<li>Visualização colorida na agenda.</li>
+<li>Controle de ocupação por horário.</li>
+</ul>
 
-\* Cadastro de múltiplas pistas.
+<hr>
 
-\* Cadastro de diversos serviços.
+<h2>👥 Cadastro de Clientes</h2>
 
-\* Definição de duração específica para cada serviço.
+<ul>
+<li>Cadastro completo de clientes.</li>
+<li>Vinculação aos agendamentos.</li>
+<li>Histórico de atendimentos.</li>
+</ul>
 
-\* Definição de cor personalizada para cada serviço.
+<hr>
 
-\* Visualização dos serviços na agenda utilizando as cores cadastradas.
-
-\* Controle de horários e ocupação das pistas.
-
-
-
-\### 👥 Cadastro de Clientes
-
-
-
-\* Cadastro completo de clientes.
-
-\* Associação de clientes aos agendamentos.
-
-\* Histórico de atendimentos.
-
-
-
-\### 💰 Controle Financeiro Automático
-
-
-
-Quando um serviço agendado é marcado como \*\*Pago\*\*, o sistema cria automaticamente um lançamento de entrada financeira.
-
-
-
-Esse lançamento é registrado na tabela financeira e pode ser consultado posteriormente no módulo de movimentações.
-
-
-
-\### 📝 Lançamentos Manuais
-
-
-
-Além dos lançamentos automáticos gerados pelos agendamentos, o sistema possui um módulo para:
-
-
-
-\* Cadastro manual de entradas.
-
-\* Cadastro manual de saídas.
-
-\* Controle financeiro completo.
-
-
-
-\### 📊 Movimentações Financeiras
-
-
-
-No menu \*\*Movimentações\*\* é possível visualizar:
-
-
-
-\* Entradas geradas automaticamente pelos serviços pagos.
-
-\* Entradas cadastradas manualmente.
-
-\* Saídas cadastradas manualmente.
-
-\* Histórico completo das movimentações financeiras.
-
-
-
-\### 📄 Relatórios PDF
-
-
-
-O sistema permite gerar relatórios em PDF contendo as movimentações financeiras para impressão, análise ou arquivamento.
-
-
-
-\## Tecnologias Utilizadas
-
-
-
-\### Backend
-
-
-
-\* PHP
-
-\* MySQL
-
-
-
-\### Frontend
-
-
-
-\* HTML5
-
-\* CSS3
-
-\* JavaScript
-
-\* jQuery
-
-
-
-\## Estrutura de Funcionamento
-
-
-
-\### Fluxo do Agendamento
-
-
-
-1\. Cadastro das pistas.
-
-2\. Cadastro dos serviços.
-
-3\. Definição da duração e cor dos serviços.
-
-4\. Cadastro dos clientes.
-
-5\. Criação do agendamento.
-
-6\. Marcação do serviço como pago.
-
-7\. Geração automática da entrada financeira.
-
-8\. Consulta das movimentações.
-
-9\. Emissão de relatório PDF.
-
-
-
-\## Recursos Financeiros
-
-
-
-| Recurso            | Descrição                                  |
-
-| ------------------ | ------------------------------------------ |
-
-| Entrada Automática | Gerada ao marcar um agendamento como pago  |
-
-| Entrada Manual     | Cadastro manual de receitas                |
-
-| Saída Manual       | Cadastro manual de despesas                |
-
-| Movimentações      | Consulta consolidada das entradas e saídas |
-
-| Relatórios PDF     | Exportação das movimentações financeiras   |
-
-
-
-\## Objetivo
-
-
-
-Centralizar o gerenciamento operacional e financeiro em uma única plataforma, permitindo controlar agendamentos, clientes, serviços e fluxo de caixa de forma simples e eficiente.
-
-
-
-\## Licença
-
-
-
-Projeto desenvolvido para uso próprio e personalização conforme a necessidade de cada negócio.
-
-
-
-
-
-
+<h2>💰 Controle Financeiro Automático</h2>
+
+<p>
+Ao marcar um agendamento como <strong>Pago</strong>, o sistema gera automaticamente uma entrada financeira.
+</p>
+
+<p>
+Essa movimentação fica registrada na tabela financeira e pode ser consultada posteriormente no módulo de movimentações.
+</p>
+
+<hr>
+
+<h2>📝 Lançamentos Manuais</h2>
+
+<p>
+O sistema também permite registrar movimentações financeiras manualmente:
+</p>
+
+<ul>
+<li>➕ Entradas</li>
+<li>➖ Saídas</li>
+<li>📊 Controle de caixa</li>
+</ul>
+
+<hr>
+
+<h2>📊 Movimentações Financeiras</h2>
+
+<table>
+<tr>
+<th>Tipo</th>
+<th>Origem</th>
+</tr>
+
+<tr>
+<td>Entrada Automática</td>
+<td>Agendamentos pagos</td>
+</tr>
+
+<tr>
+<td>Entrada Manual</td>
+<td>Lançamento manual</td>
+</tr>
+
+<tr>
+<td>Saída Manual</td>
+<td>Lançamento manual</td>
+</tr>
+
+</table>
+
+<hr>
+
+<h2>📄 Relatórios PDF</h2>
+
+<p>
+Geração de relatórios financeiros contendo:
+</p>
+
+<ul>
+<li>Entradas</li>
+<li>Saídas</li>
+<li>Movimentações</li>
+<li>Fluxo de caixa</li>
+</ul>
+
+<hr>
+
+<h2>🔄 Fluxo de Funcionamento</h2>
+
+<pre>
+Cadastro de Cliente
+        ↓
+Cadastro de Serviço
+        ↓
+Agendamento
+        ↓
+Pagamento
+        ↓
+Entrada Financeira
+        ↓
+Movimentações
+        ↓
+Relatório PDF
+</pre>
+
+<hr>
+
+<h2>🛠️ Tecnologias Utilizadas</h2>
+
+<table>
+<tr>
+<th>Camada</th>
+<th>Tecnologia</th>
+</tr>
+
+<tr>
+<td>Backend</td>
+<td>PHP</td>
+</tr>
+
+<tr>
+<td>Banco de Dados</td>
+<td>MySQL</td>
+</tr>
+
+<tr>
+<td>Frontend</td>
+<td>HTML5, CSS3, JavaScript e jQuery</td>
+</tr>
+
+</table>
+
+<hr>
 
 <h2>📸 Screenshots</h2>
 
-
-
 <p align="center">
-
-&#x20; <img src="screenshots/imagem01.png" width="900">
-
+<img src="screenshots/imagem01.png" width="100%">
 </p>
 
 <p align="center">
-
-&#x20; <img src="screenshots/imagem02.png" width="900">
-
+<img src="screenshots/imagem02.png" width="100%">
 </p>
 
 <p align="center">
-
-&#x20; <img src="screenshots/imagem03.png" width="900">
-
+<img src="screenshots/imagem03.png" width="100%">
 </p>
 
 <p align="center">
-
-&#x20; <img src="screenshots/imagem04.png" width="900">
-
+<img src="screenshots/imagem04.png" width="100%">
 </p>
 
+<hr>
 
+<h2>🎯 Objetivo</h2>
 
+<p>
+Centralizar em uma única plataforma o gerenciamento operacional e financeiro da empresa, permitindo controlar:
+</p>
 
+<ul>
+<li>Agendamentos</li>
+<li>Clientes</li>
+<li>Serviços</li>
+<li>Receitas</li>
+<li>Despesas</li>
+<li>Relatórios</li>
+</ul>
 
+<hr>
+
+<div align="center">
+
+<h3>Desenvolvido em PHP ❤️</h3>
+
+</div>
