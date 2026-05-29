@@ -1,0 +1,3 @@
+resolver conflito de horarios
+qndo cancela o agendamento se tiver pago tem q cancelar
+
