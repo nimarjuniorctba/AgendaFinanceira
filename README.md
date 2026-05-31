@@ -218,7 +218,7 @@ Relatório PDF
 <h2>📸 Instalação</h2>
 
 <p><p align="center">
-<br><br><img src="screenshots/imagem_install.png" width="30%"><br>
+<br><br><img src="screenshots/imagem_install.png" width="50%"><br>
 Para instalar o sistema acesse a url: 'AgendaFinanceira/install/index.php' e o sistema vai instalar o banco, baseado nos arquivos da pasta banco</p>
 </p>
 
