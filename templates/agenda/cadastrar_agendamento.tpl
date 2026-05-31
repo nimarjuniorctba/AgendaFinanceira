@@ -3,7 +3,7 @@
 body {
     font-family: Arial;
     background: #f4f4f4;
-    padding: 20px;
+  
 }
 
 form {
@@ -39,7 +39,7 @@ button {
 
 <h2>Novo Agendamento</h2>
 
-<form method="POST">
+<form method="POST" style="margin-left:10px;">
 
     <label>Data</label>
     <input type="date" name="data" required>

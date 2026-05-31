@@ -3,7 +3,7 @@
 body {
     font-family: Arial;
     background: #f4f4f4;
-    padding: 20px;
+    
 }
 
 h2 {
@@ -19,6 +19,7 @@ table {
     width: 100%;
     max-width: 1100px;
     background: #fff;
+	margin-left: 10px;
 }
 
 th, td {
@@ -73,7 +74,7 @@ th {
 	var BASE_URL = '{$pagina->base}';
 </script>
 
-<div class="topo">
+<div class="topo" style="margin-left:10px;">
     <label><strong>Data:</strong></label>
     <input type="date" id="dataAgenda" value="{$DATA_ATUAL}">
 </div>

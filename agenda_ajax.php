@@ -385,22 +385,96 @@ if ($acao == 'salvar') {
 
             exit;
         }
+        
+// duração do novo serviço
+$duracaoMinutos = (int)$ser['ser_duracao'];
 
-        // verifica conflito
-        $stmt = $pdo->prepare("
-            SELECT COUNT(*)
-            FROM mod_agendamentos
-            WHERE age_data = ?
-            AND pis_id_fk = ?
-            AND age_hora_inicio_fk = ?
-            AND age_status = 'a'
-        ");
+// busca horário selecionado
+$stmt = $pdo->prepare("
+    SELECT hor_hora
+    FROM mod_horarios
+    WHERE hor_id = ?
+");
 
-        $stmt->execute([
-            $data,
-            $pista,
-            $hora
+$stmt->execute([$hora]);
+
+$horaInicio = $stmt->fetchColumn();
+
+if (!$horaInicio) {
+
+    echo json_encode([
+        'status' => 'erro',
+        'msg' => 'Horário inválido'
+    ]);
+
+    exit;
+}
+
+// calcula período do novo agendamento
+$novoInicio = strtotime($data . ' ' . $horaInicio);
+$novoFim    = $novoInicio + ($duracaoMinutos * 60);        
+
+//        // verifica conflito
+//        $stmt = $pdo->prepare("
+//            SELECT COUNT(*)
+//            FROM mod_agendamentos
+//            WHERE age_data = ?
+//            AND pis_id_fk = ?
+//            AND age_hora_inicio_fk = ?
+//            AND age_status = 'a'
+//        ");
+       
+$stmt = $pdo->prepare("
+    SELECT
+        a.*,
+        h.hor_hora,
+        s.ser_duracao
+    FROM mod_agendamentos a
+    INNER JOIN mod_horarios h
+        ON h.hor_id = a.age_hora_inicio_fk
+    INNER JOIN mod_servicos s
+        ON s.ser_id = a.ser_id_fk
+    WHERE a.age_data = ?
+    AND a.pis_id_fk = ?
+    AND a.age_status = 'a'
+");
+
+$stmt->execute([
+    $data,
+    $pista
+]);
+
+while ($ag = $stmt->fetch(PDO::FETCH_ASSOC)) {
+
+    $inicioExistente = strtotime(
+        $data . ' ' . $ag['hor_hora']
+    );
+
+$fimExistente = $inicioExistente +
+    ((int)$ag['ser_duracao'] * 60);
+
+    $conflito =
+        ($novoInicio < $fimExistente) &&
+        ($novoFim > $inicioExistente);
+
+    if ($conflito) {
+
+        echo json_encode([
+            'status' => 'erro',
+            'msg' => 'Este serviço conflita com outro agendamento da pista.'
         ]);
+
+        exit;
+    }
+}        
+        
+/// FIM        
+
+//        $stmt->execute([
+//            $data,
+//            $pista,
+//            $hora
+//        ]);
 
         if ($stmt->fetchColumn() > 0) {
 
