@@ -1,3 +1,7 @@
+<script>
+	var BASE_URL = '{$pagina->base}';
+</script>
+
 <h2>Novo Agendamento</h2>
 
 <form id="formAgenda">
@@ -60,7 +64,7 @@ $('#cliente').change(function(){
 
     $('#veiculo').html('<option>Carregando...</option>');
 
-    $.get('agenda_ajax.php?acao=veiculos&cliente_id='+cliente_id, function(res){
+    $.get(BASE_URL+'agenda_ajax.php?acao=veiculos&cliente_id='+cliente_id, function(res){
 
         let html = '<option value="">Selecione</option>';
 
@@ -80,7 +84,7 @@ $('#formAgenda').submit(function(e){
 
     e.preventDefault();
 
-    $.post('agenda_ajax.php?acao=salvar', $(this).serialize(), function(res){
+    $.post(BASE_URL+'agenda_ajax.php?acao=salvar', $(this).serialize(), function(res){
 
         if(res.status === 'ok'){
             alert('Agendado com sucesso!');

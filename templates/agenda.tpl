@@ -69,6 +69,10 @@ th {
 <br>
 <h2 hidden>Agenda</h2>
 
+<script>
+	var BASE_URL = '{$pagina->base}';
+</script>
+
 <div class="topo">
     <label><strong>Data:</strong></label>
     <input type="date" id="dataAgenda" value="{$DATA_ATUAL}">
@@ -96,7 +100,7 @@ function carregarAgenda(){
     let data = $('#dataAgenda').val();
 
     $('#agendaContainer').load(
-        'agenda_ajax.php?acao=lista&data=' + data
+        BASE_URL+'agenda_ajax.php?acao=lista&data=' + data
     );
 }
 
@@ -116,7 +120,7 @@ $(document).on('click', '.livre', function(){
     $('#modalBg').show();
 
     $('#modalContent').load(
-        'agenda_ajax.php?acao=cadastrar&hora=' + hora + '&pista=' + pista + '&data=' + data
+        BASE_URL+'agenda_ajax.php?acao=cadastrar&hora=' + hora + '&pista=' + pista + '&data=' + data
     );
 });
 
@@ -128,7 +132,7 @@ $(document).on('click', '.ocupado', function(){
     $('#modalBg').show();
 
     $('#modalContent').load(
-        'agenda_ajax.php?acao=descricao&id=' + id
+        BASE_URL+'agenda_ajax.php?acao=descricao&id=' + id
     );
 });
 

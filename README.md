@@ -219,7 +219,7 @@ Relatório PDF
 
 <p><p align="center">
 <br><br><img src="screenshots/imagem_install.png" width="50%"><br>
-Para instalar o sistema acesse a url: 'AgendaFinanceira/install/index.php' e o sistema vai instalar o banco, baseado nos arquivos da pasta banco</p>
+Para instalar o sistema acesse a url: 'AgendaFinanceira/install/index.php' e o sistema vai instalar o banco, baseado nos arquivos da pasta banco.</p>
 </p>
 
 
@@ -244,6 +244,6 @@ Centralizar em uma única plataforma o gerenciamento operacional e financeiro da
 
 <div align="center">
 
-<h3>Desenvolvido em PHP ❤️</h3>
+<h3>Desenvolvido em PHP</h3>
 
 </div>

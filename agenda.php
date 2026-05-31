@@ -1,12 +1,12 @@
 <?php
 
-require_once 'smarty/config.ini.php';
-require_once 'classes/Autoload.class.php';
+//require_once 'smarty/config.ini.php';
+//require_once 'classes/Autoload.class.php';
 
-error_reporting(E_ALL & ~E_DEPRECATED);
-
-$smarty = new Smarty();
-$pdo = MySQL_PDO::conexao();
+//error_reporting(E_ALL & ~E_DEPRECATED);
+//
+//$smarty = new Smarty();
+//$pdo = MySQL_PDO::conexao();
 
 // DATA ATUAL
 $data = date('Y-m-d');

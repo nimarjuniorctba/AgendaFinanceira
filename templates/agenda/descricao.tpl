@@ -1,3 +1,7 @@
+<script>
+	var BASE_URL = '{$pagina->base}';
+</script>
+
 <h2>Detalhes do Agendamento</h2>
 
 <p><strong>Cliente:</strong> {$AG.cli_nome}</p>
@@ -62,7 +66,7 @@ $('#btnCancelar').click(function(){
 
     if(!confirm('Cancelar agendamento?')) return;
 
-    $.post('agenda_ajax.php?acao=cancelar',{
+    $.post(BASE_URL+'agenda_ajax.php?acao=cancelar',{
         id: $(this).data('id')
     }, function(res){
 
@@ -90,7 +94,7 @@ $('#btnPagar').click(function(){
 
     if(!confirm('Confirmar pagamento?')) return;
 
-    $.post('agenda_ajax.php?acao=pagar',{
+    $.post(BASE_URL+'agenda_ajax.php?acao=pagar',{
         id: $(this).data('id'),
         forma: forma
     }, function(res){

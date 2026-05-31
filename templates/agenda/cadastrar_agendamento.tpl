@@ -33,6 +33,10 @@ button {
 }
 </style>
 
+<script>
+	var BASE_URL = '{$pagina->base}';
+</script>
+
 <h2>Novo Agendamento</h2>
 
 <form method="POST">
@@ -103,7 +107,7 @@ $('#cliente').change(function(){
 
     $('#veiculo').html('<option>Carregando...</option>');
 
-    $.get('buscar_veiculos.php?cliente='+cliente, function(data){
+    $.get(BASE_URL+'buscar_veiculos.php?cliente='+cliente, function(data){
         $('#veiculo').html(data);
     });
 
