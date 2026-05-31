@@ -7,6 +7,12 @@
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
+<link rel="stylesheet" href="https://cdn.datatables.net/1.13.8/css/jquery.dataTables.min.css">
+<link rel="stylesheet" href="https://cdn.datatables.net/responsive/2.5.0/css/responsive.dataTables.min.css">
+
+<script src="https://cdn.datatables.net/1.13.8/js/jquery.dataTables.min.js"></script>
+<script src="https://cdn.datatables.net/responsive/2.5.0/js/dataTables.responsive.min.js"></script>
+
 {include file="abas.tpl"}
 
 <style>
@@ -31,7 +37,11 @@ button { background:#007bff; color:#fff; border:none; cursor:pointer; }
 .tabela-box { flex:2; min-width:300px; }
 .grafico-box { flex:1; min-width:250px; }
 
-table { width:100%; border-collapse:collapse; }
+/*table { width:100%; border-collapse:collapse; }*/
+table:not(.dataTable) {
+    width:100%;
+    border-collapse:collapse;
+}
 th,td { padding:10px; border:1px solid #ccc; text-align:center; }
 
 th { background:#333; color:#fff; }
@@ -51,11 +61,37 @@ th { background:#333; color:#fff; }
     .grid { flex-direction:column; }
     .topo { flex-direction:column; align-items:flex-start; }
 }
+
+/*Data Table*/
+
+.dataTables_wrapper{
+    margin-top:15px;
+}
+
+.dataTables_filter{
+    margin-bottom:10px;
+}
+
+.dataTables_length{
+    margin-bottom:10px;
+}
+
+.dataTables_paginate{
+    margin-top:10px !important;
+}
+
+table.dataTable tbody tr:hover{
+    background:#f5f5f5;
+}
+
 </style>
 
 </head>
 <body>
 
+<script>
+	var BASE_URL = '{$pagina->base}';
+</script>
 
 <div class="container">
 
@@ -120,13 +156,13 @@ Saídas: R$ <span id="totalSaida">0</span>
 </select>
 </div>
 
-<button id="btnRelatorio" class="btn-mini">📄 PDF</button>
+<button id="btnRelatorio" class="btn-mini">📄 Gerar Relatório(.pdf)</button>
 </div>
 
 <div class="grid">
 
 <div class="tabela-box">
-<table>
+<table id="tabelaMovimentacoes" class="display nowrap" style="width:100%">
 <thead>
 <tr>
 <th>Data</th>
@@ -176,6 +212,7 @@ Saídas: R$ <span id="totalSaida">0</span>
 
 let chart;
 let listaAtual = [];
+let tabelaDataTable = null;
 
 function render(lista){
 
@@ -208,9 +245,36 @@ function render(lista){
         `;
     });
 
-    $('#tabela').html(html);
-    $('#totalEntrada').text(totalEntrada.toFixed(2));
-    $('#totalSaida').text(totalSaida.toFixed(2));
+if($.fn.DataTable.isDataTable('#tabelaMovimentacoes')){
+    $('#tabelaMovimentacoes').DataTable().destroy();
+}
+
+$('#tabela').html(html);
+
+$('#totalEntrada').text(totalEntrada.toFixed(2));
+$('#totalSaida').text(totalSaida.toFixed(2));
+
+tabelaDataTable = $('#tabelaMovimentacoes').DataTable({
+    pageLength: 10,
+    responsive: true,
+    ordering: true,
+    searching: true,
+    autoWidth: false,
+
+    language: {
+        search: "Pesquisar:",
+        lengthMenu: "Mostrar _MENU_ registros",
+        info: "Mostrando _START_ até _END_ de _TOTAL_ registros",
+        infoEmpty: "Nenhum registro encontrado",
+        zeroRecords: "Nenhum registro encontrado",
+        paginate: {
+            first: "Primeira",
+            last: "Última",
+            next: "Próxima",
+            previous: "Anterior"
+        }
+    }
+});
 
     if(chart) chart.destroy();
 
@@ -225,7 +289,7 @@ function render(lista){
 
 $('#btnFiltrar').click(function(){
 
-    $.post('financeiro_movimentacoes.php',{
+    $.post(BASE_URL +'financeiro_movimentacoes_ajax.php',{
         ajax:1,
         dataInicio: $('#dataInicio').val(),
         dataFim: $('#dataFim').val(),
@@ -254,7 +318,7 @@ function fecharModal(){
 }
 
 function salvarEdicao(){
-    $.post('financeiro_movimentacoes.php',{
+    $.post(BASE_URL+'financeiro_movimentacoes_ajax.php',{
         editar:1,
         id: $('#editId').val(),
         descricao: $('#editDesc').val(),
@@ -266,7 +330,7 @@ function salvarEdicao(){
 
 function excluir(){
     if(confirm('Excluir?')){
-        $.post('financeiro_movimentacoes.php',{
+        $.post(BASE_URL+'financeiro_movimentacoes_ajax.php',{
             excluir:1,
             id: $('#editId').val()
         }, function(){
@@ -285,7 +349,7 @@ $('#btnRelatorio').click(function(){
         servico: $('#servicoFiltro').val()
     });
 
-    window.open('financeiro_relatorio.php?' + params.toString(), '_blank');
+    window.open(BASE_URL+'financeiro_relatorio.php?' + params.toString(), '_blank');
 
 });
 

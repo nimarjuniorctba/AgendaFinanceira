@@ -36,11 +36,11 @@ $pagina->upload         = "imagens/uploads/";
             case 'agenda':			
                             require_once('agenda.php');
                             break;
-            case 'financeiro-lancamento':	
-                echo "passo 2 - acessou variavel financeiro <br>";
+            case 'financeiro-lancamento':	               
                             require_once('financeiro_lancamento.php');
                             break;
-            case 'financeiro-movimentacoes':			
+            case 'financeiro-movimentacoes':
+                 echo "passo 2 - acessou variavel financeiro <br>";
                             require_once('financeiro_movimentacoes.php');
                             break;                              
             case 'cadastrar-agendamento':			
