@@ -1,8 +1,7 @@
 <?php
-require_once 'smarty/config.ini.php';
-require_once 'classes/Autoload.class.php';
 
-$pdo = MySQL_PDO::conexao();
+
+
 
 /* =========================
    AJAX LISTAGEM
@@ -96,4 +95,6 @@ $servicos = $pdo->query("
 
 $smarty = new Smarty();
 $smarty->assign('SERVICOS', $servicos);
+
+$smarty->assign('pagina',$pagina); 
 $smarty->display('financeiro_movimentacoes.tpl');

@@ -163,8 +163,8 @@ body {
                 <input type="checkbox" id="sub2" hidden>
 
                 <ul class="submenu">
-                    <li><a href="financeiro_lancamento.php">Lançamento</a></li>
-                    <li><a href="financeiro_movimentacoes.php">Movimentação</a></li>
+                    <li><a href="{$pagina->base}financeiro-lancamento">Lançamento</a></li>
+                    <li><a href="{$pagina->base}financeiro-movimentacoes">Movimentação</a></li>
                 </ul>
             </li>
             <li hidden><a href="#">Configurações</a></li>

@@ -91,12 +91,16 @@ th { background:#333; color:#fff; }
 
 <body>
 
+<script>
+	var BASE_URL = '{$pagina->base}';
+</script>
+
 
 <div class="container">
 
 <h2>Novo Lançamento</h2>
 
-<form method="POST" action="financeiro_lancamento.php">
+<form method="POST" action="{$pagina->base}financeiro-lancamento/">
 
 <label>Tipo:</label>
 <select name="tipo" id="tipo">
@@ -237,7 +241,7 @@ $('#btnExcluir').click(function(){
     var id = $('#modal_id').val();
 
     if(confirm('Excluir lançamento?')){
-        $.post('financeiro_excluir.php',{id:id},function(){
+        $.post(BASE_URL +'financeiro_excluir.php',{id:id},function(){
             location.reload();
         });
     }

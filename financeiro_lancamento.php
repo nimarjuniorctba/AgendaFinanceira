@@ -1,12 +1,14 @@
 <?php
-require_once 'smarty/config.ini.php';
-require_once 'classes/Autoload.class.php';
-
-$smarty = new Smarty();
-$pdo = MySQL_PDO::conexao();
+/*
+echo "passo 3 - acessou arquivo<br>";
+var_dump($_SERVER['REQUEST_METHOD']);
+echo "<br>fim do passo3<br>";
+exit;*/
 
 // SALVAR
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+    
+
 
     $tipo = $_POST['tipo'];
     $valor = $_POST['valor'];
@@ -43,7 +45,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $servico
     ]);
 
-    header('Location: financeiro_lancamento.php');
+    header('Location: '.$pagina->base.'financeiro-lancamento/');
     exit;
 }
 
@@ -68,4 +70,5 @@ $smarty->assign('LANCAMENTOS', $lancamentos);
 $smarty->assign('SERVICOS', $servicos);
 $smarty->assign('CATEGORIAS', $categorias);
 
+$smarty->assign('pagina',$pagina); 
 $smarty->display('financeiro_lancamento.tpl');

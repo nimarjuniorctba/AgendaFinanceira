@@ -1,0 +1,16 @@
+RewriteEngine on
+
+
+
+RewriteCond %{SCRIPT_FILENAME} !-f
+RewriteCond %{SCRIPT_FILENAME} !-d
+
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_URI} !(.*)/$
+
+RewriteRule ^(.*)$ %{REQUEST_URI}/ [R=301,L]
+
+
+RewriteRule ^([a-z0-9-]+)\/$ index.php?opcao=$1 [NC]
+RewriteRule ^([a-z0-9-]+)\/([a-z0-9-]+)\/$ index.php?opcao=$1&acao=$2 [NC]
+RewriteRule ^([a-z0-9-]+)\/([a-z0-9-]+)\/([a-zA-Z=0-9-]+)\/$ index.php?opcao=$1&acao=$2&valor=$3 [NC]

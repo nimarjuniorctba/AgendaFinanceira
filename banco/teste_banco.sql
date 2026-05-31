@@ -86,9 +86,9 @@ INSERT INTO mod_servicos (ser_nome, ser_valor, ser_duracao, ser_cor) VALUES
 -- PISTAS (caso ainda não tenha)
 -- ============================
 INSERT INTO mod_pistas (pis_nome, pis_status) VALUES
-('Pista 1', 'a'),
-('Pista 2', 'a');
-
+('Ricardo', 'a'),
+('João', 'a'),
+('Maycom', 'a');
 
 -- ============================
 -- AGENDAMENTOS EXEMPLO
