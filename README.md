@@ -218,8 +218,8 @@ Relatório PDF
 <h2>📸 Instalação</h2>
 
 <p><p align="center">
-<strong>Sistema de Agendamento e Controle Financeiro</strong><br><br><img src="screenshots/imagem_install.png" width="30%"><br>
-Para instalar o sistema acesse a url AgendaFinanceira/install/index.php</p>
+<br><br><img src="screenshots/imagem_install.png" width="30%"><br>
+Para instalar o sistema acesse a url: 'AgendaFinanceira/install/index.php' e o sistema vai instalar o banco, baseado nos arquivos da pasta banco</p>
 </p>
 
 
