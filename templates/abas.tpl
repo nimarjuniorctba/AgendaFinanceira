@@ -1,4 +1,3 @@
-
 <style>
 * {
     margin: 0;
@@ -143,18 +142,18 @@ body {
         <!-- MENU -->
         <ul class="menu">
 
-            <li><a href="inicial.php">Home</a></li>
-			<li><a href="agenda.php">Agenda</a></li>
+            <li><a href="{$pagina->base}inicial">Home</a></li>
+			<li><a href="{$pagina->base}agenda">Agenda</a></li>
             <li>
                 <label for="sub1">Cadastro</label>
                 <input type="checkbox" id="sub1" hidden>
 
                 <ul class="submenu">
-                    <li><a href="cadastrar_agendamento.php" hidden>Agenda</a></li>
-					<li><a href="cad_clientes.php">Cliente</a></li>
-                    <li><a href="cad_servico.php">Serviços</a></li>
-					<li><a href="cad_pista.php">Pista</a></li>
-					<li><a href="cad_veiculo.php">Veiculo</a></li>
+                    <li><a href="{$pagina->base}cadastrar-agendamento" hidden>Agenda</a></li>
+					<li><a href="{$pagina->base}cadastrar-clientes">Cliente</a></li>
+                    <li><a href="{$pagina->base}cadastrar-servico">Serviços</a></li>
+					<li><a href="{$pagina->base}cadastrar-pista">Pista</a></li>
+					<li><a href="{$pagina->base}cadastrar-veiculo">Veiculo</a></li>
                 </ul>
             </li>
 

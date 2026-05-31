@@ -111,4 +111,5 @@ $smarty->assign('PISTAS', $pistas);
 $smarty->assign('OCUPADOS', $ocupados);
 $smarty->assign('ROWSPAN', $rowspan);
 
+$smarty->assign('pagina', $pagina);
 $smarty->display('agenda.tpl');

@@ -15,4 +15,5 @@ if ($_POST) {
     echo "Salvo!";
 }
 
+$smarty->assign('pagina', $pagina);
 $smarty->display('templates/cad_pista.tpl');

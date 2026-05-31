@@ -213,23 +213,15 @@ Relatório PDF
 
 <hr>
 
-<h2>📸 Screenshots</h2>
 
-<p align="center">
-<img src="screenshots/imagem01.png" width="100%">
+
+<h2>📸 Instalação</h2>
+
+<p><p align="center">
+<strong>Sistema de Agendamento e Controle Financeiro</strong><br><br><img src="screenshots/imagem_install.png" width="30%"><br>
+Para instalar o sistema acesse a url AgendaFinanceira/install/index.php</p>
 </p>
 
-<p align="center">
-<img src="screenshots/imagem02.png" width="100%">
-</p>
-
-<p align="center">
-<img src="screenshots/imagem03.png" width="100%">
-</p>
-
-<p align="center">
-<img src="screenshots/imagem04.png" width="100%">
-</p>
 
 <hr>
 

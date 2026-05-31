@@ -34,4 +34,6 @@ if ($_POST) {
 }
 
 $smarty->assign('CLIENTES', $clientes);
+
+$smarty->assign('pagina', $pagina);
 $smarty->display('templates/cad_veiculo.tpl');

@@ -105,4 +105,5 @@ $smarty->assign('SERVICOS', $servicos);
 $smarty->assign('PISTAS', $pistas);
 $smarty->assign('HORARIOS', $horarios);
 
+$smarty->assign('pagina', $pagina);
 $smarty->display('templates/agenda/cadastrar_agendamento.tpl');

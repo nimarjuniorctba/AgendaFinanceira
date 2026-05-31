@@ -40,7 +40,7 @@ $pagina->upload         = "imagens/uploads/";
                             require_once('financeiro_lancamento.php');
                             break;
             case 'financeiro-movimentacoes':
-                 echo "passo 2 - acessou variavel financeiro <br>";
+//                 echo "passo 2 - acessou variavel financeiro <br>";
                             require_once('financeiro_movimentacoes.php');
                             break;                              
             case 'cadastrar-agendamento':			

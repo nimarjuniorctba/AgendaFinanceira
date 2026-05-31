@@ -28,4 +28,5 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     echo "Salvo!";
 }
 
+$smarty->assign('pagina', $pagina);
 $smarty->display('templates/cad_cliente.tpl');

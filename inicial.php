@@ -174,4 +174,5 @@ $smarty->assign('ANO_ATUAL', $ANO_ATUAL);
 
 
 // =============================
+$smarty->assign('pagina', $pagina);
 $smarty->display('dashboard.tpl');
