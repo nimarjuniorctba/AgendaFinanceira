@@ -52,7 +52,7 @@ if($acao == 'salvar'){
         ]);
     }
 
-    header('Location: configuracao_agenda.php');
+    header('Location: configuracoes');
     exit;
 }
 

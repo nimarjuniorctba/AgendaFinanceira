@@ -1,7 +1,7 @@
 {include file="abas.tpl"}
 <h2>Configuração de Horário de Funcionamento</h2>
 
-<form method="post" action="configuracao_agenda.php?acao=salvar">
+<form method="post" action="{$pagina->base}configuracao_agenda.php?acao=salvar">
 
     <div style="margin-bottom:15px;">
         <label><strong>Abre às:</strong></label>

@@ -167,7 +167,7 @@ body {
                     <li><a href="{$pagina->base}financeiro-movimentacoes">Movimentação</a></li>
                 </ul>
             </li>
-            <li><a href="configuracoes">Configurações</a></li>
+            <li><a href="{$pagina->base}configuracoes">Configurações</a></li>
 
         </ul>
     </div>
