@@ -1,7 +1,3 @@
-<script>
-	var BASE_URL = '{$pagina->base}';
-</script>
-
 <h2>Detalhes do Agendamento</h2>
 
 <p><strong>Cliente:</strong> {$AG.cli_nome}</p>

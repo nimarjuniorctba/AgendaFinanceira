@@ -70,9 +70,7 @@ th {
 <br>
 <h2 hidden>Agenda</h2>
 
-<script>
-	var BASE_URL = '{$pagina->base}';
-</script>
+
 
 <div class="topo" style="margin-left:10px;">
     <label><strong>Data:</strong></label>

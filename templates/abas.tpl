@@ -127,6 +127,7 @@ body {
     }
 }
 </style>
+	<link rel="icon" type="image/png" href="{$pagina->base}imgs/favicon.png">
 </head>
 
 <body>
@@ -166,9 +167,13 @@ body {
                     <li><a href="{$pagina->base}financeiro-movimentacoes">Movimentação</a></li>
                 </ul>
             </li>
-            <li hidden><a href="#">Configurações</a></li>
+            <li><a href="configuracoes">Configurações</a></li>
 
         </ul>
     </div>
 </nav>
 <br>
+
+<script>
+	var BASE_URL = '{$pagina->base}';
+</script>

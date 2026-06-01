@@ -55,7 +55,10 @@ $pagina->upload         = "imagens/uploads/";
                             break;                             
             case 'cadastrar-veiculo':			
                             require_once('cad_veiculo.php');
-                            break;                             
+                            break;                
+            case 'configuracoes':			
+                            require_once('configuracao_agenda.php');
+                            break;                                                  
             default:
                             require_once('dashboard.php');
                             break;

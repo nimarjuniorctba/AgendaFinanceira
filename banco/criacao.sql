@@ -186,3 +186,21 @@ INSERT INTO agenda.mod_categoria_lancamentos (cat_nome, cat_status) VALUES
 ('Marketing', 'a'),
 ('Despesas Gerais', 'a'),
 ('Outros', 'a');
+
+
+------------------
+
+
+CREATE TABLE mod_configuracao_agenda (
+    cfg_id INT AUTO_INCREMENT PRIMARY KEY,
+    cfg_hora_inicio_fk INT NOT NULL,
+    cfg_hora_fim_fk INT NOT NULL
+);
+
+INSERT INTO mod_configuracao_agenda (
+    cfg_hora_inicio_fk,
+    cfg_hora_fim_fk
+) VALUES (
+    1,
+    120
+);

@@ -23,11 +23,22 @@ $TOTAL_AGENDAMENTOS = $pdo->query("
 ")->fetchColumn();
 
 $FATURAMENTO = $pdo->query("
-    SELECT IFNULL(SUM(age_valor_final),0) 
-    FROM mod_agendamentos 
-    WHERE age_data = CURDATE()
-    AND age_status='a'
+    SELECT IFNULL(SUM(fin_valor_final),0)
+    FROM mod_financeiro
+    WHERE fin_data = CURDATE()
+    AND fin_tipo='entrada'
+    AND fin_status='a'
 ")->fetchColumn();
+
+$SAIDAS_HOJE = $pdo->query("
+    SELECT IFNULL(SUM(fin_valor_final),0)
+    FROM mod_financeiro
+    WHERE fin_data = CURDATE()
+    AND fin_tipo='saida'
+    AND fin_status='a'
+")->fetchColumn();
+
+$SALDO_HOJE = $FATURAMENTO - $SAIDAS_HOJE;
 
 
 // =============================
@@ -60,10 +71,11 @@ for ($i = 6; $i >= 0; $i--) {
     $data = date('Y-m-d', strtotime("-$i days"));
 
     $valor = $pdo->query("
-        SELECT IFNULL(SUM(age_valor_final),0)
-        FROM mod_agendamentos
-        WHERE age_data = '$data'
-        AND age_status='a'
+        SELECT IFNULL(SUM(fin_valor_final),0)
+        FROM mod_financeiro
+        WHERE fin_data = '$data'
+        AND fin_tipo='entrada'
+        AND fin_status='a'
     ")->fetchColumn();
 
     $labelsSemana[] = date('d/m', strtotime($data));
@@ -120,21 +132,36 @@ for ($m = 1; $m <= 12; $m++) {
 // =============================
 // 📊 RESUMOS
 // =============================
-$TOTAL_MES = $pdo->query("
-    SELECT IFNULL(SUM(age_valor_final),0)
-    FROM mod_agendamentos
-    WHERE MONTH(age_data)=MONTH(CURDATE())
-    AND YEAR(age_data)=YEAR(CURDATE())
-    AND age_status='a'
+$ENTRADAS_MES = $pdo->query("
+    SELECT IFNULL(SUM(fin_valor_final),0)
+    FROM mod_financeiro
+    WHERE fin_tipo='entrada'
+    AND fin_status='a'
+    AND MONTH(fin_data)=MONTH(CURDATE())
+    AND YEAR(fin_data)=YEAR(CURDATE())
 ")->fetchColumn();
+
+$SAIDAS_MES = $pdo->query("
+    SELECT IFNULL(SUM(fin_valor_final),0)
+    FROM mod_financeiro
+    WHERE fin_tipo='saida'
+    AND fin_status='a'
+    AND MONTH(fin_data)=MONTH(CURDATE())
+    AND YEAR(fin_data)=YEAR(CURDATE())
+")->fetchColumn();
+
+$TOTAL_MES = $ENTRADAS_MES;
+$SALDO_MES = $ENTRADAS_MES - $SAIDAS_MES;
 
 $TOTAL_ANO = $pdo->query("
-    SELECT IFNULL(SUM(age_valor_final),0)
-    FROM mod_agendamentos
-    WHERE YEAR(age_data)=YEAR(CURDATE())
-    AND age_status='a'
+    SELECT IFNULL(SUM(fin_valor_final),0)
+    FROM mod_financeiro
+    WHERE fin_tipo='entrada'
+    AND fin_status='a'
+    AND YEAR(fin_data)=YEAR(CURDATE())
 ")->fetchColumn();
 
+// Total de serviços/agendamentos do ano
 $TOTAL_SERVICOS_ANO = $pdo->query("
     SELECT COUNT(*)
     FROM mod_agendamentos
@@ -142,8 +169,8 @@ $TOTAL_SERVICOS_ANO = $pdo->query("
     AND age_status='a'
 ")->fetchColumn();
 
+// Ano atual
 $ANO_ATUAL = date('Y');
-
 
 // =============================
 // 🔥 ENVIA PRO SMARTY
@@ -175,4 +202,11 @@ $smarty->assign('ANO_ATUAL', $ANO_ATUAL);
 
 // =============================
 $smarty->assign('pagina', $pagina);
+$smarty->assign('SAIDAS_HOJE', number_format($SAIDAS_HOJE,2,',','.'));
+$smarty->assign('SALDO_HOJE', number_format($SALDO_HOJE,2,',','.'));
+
+$smarty->assign('ENTRADAS_MES', number_format($ENTRADAS_MES,2,',','.'));
+$smarty->assign('SAIDAS_MES', number_format($SAIDAS_MES,2,',','.'));
+$smarty->assign('SALDO_MES', number_format($SALDO_MES,2,',','.'));
+
 $smarty->display('dashboard.tpl');

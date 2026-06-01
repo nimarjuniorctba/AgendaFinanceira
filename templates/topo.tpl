@@ -18,6 +18,7 @@
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.css" />
 	<script type="text/javascript" src="{$pagina->base}js/jquery.mask.js"></script>
 	<script type="text/javascript" src="{$pagina->base}js/geral.js"></script>
+	<link rel="icon" type="image/png" href="{$pagina->base}imgs/favicon.png">
 
 <head>
 <body>

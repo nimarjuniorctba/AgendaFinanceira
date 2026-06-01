@@ -14,11 +14,41 @@ $data = date('Y-m-d');
 // =============================
 // 🔹 HORÁRIOS
 // =============================
+/*
+
 $horarios = $pdo->query("
     SELECT hor_id, hor_hora 
     FROM mod_horarios 
     ORDER BY hor_id
 ")->fetchAll(PDO::FETCH_ASSOC);
+
+*/
+
+		// =============================
+		// 🔹 CONFIGURAÇÃO DA AGENDA
+		// =============================
+		$config = $pdo->query("
+			SELECT *
+			FROM mod_configuracao_agenda
+			LIMIT 1
+		")->fetch(PDO::FETCH_ASSOC);
+
+		// =============================
+		// 🔹 HORÁRIOS FILTRADOS
+		// =============================
+		$horarios = $pdo->prepare("
+			SELECT hor_id, hor_hora
+			FROM mod_horarios
+			WHERE hor_id BETWEEN ? AND ?
+			ORDER BY hor_id
+		");
+
+		$horarios->execute([
+			$config['cfg_hora_inicio_fk'],
+			$config['cfg_hora_fim_fk']
+		]);
+
+		$horarios = $horarios->fetchAll(PDO::FETCH_ASSOC);
 
 // =============================
 // 🔹 PISTAS

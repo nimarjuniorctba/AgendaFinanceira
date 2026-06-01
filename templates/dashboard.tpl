@@ -125,20 +125,37 @@ th {
             <p>{$TOTAL_AGENDAMENTOS}</p>
         </div>
 
-        <div class="card">
-            <h3>Faturamento Hoje</h3>
-            <p>R$ {$FATURAMENTO}</p>
-        </div>
+		<div class="card">
+			<h3>Entradas Hoje</h3>
+			<p>R$ {$FATURAMENTO}</p>
+		</div>
+
+		<div class="card">
+			<h3>Saídas Hoje</h3>
+			<p>R$ {$SAIDAS_HOJE}</p>
+		</div>
+
+		<div class="card">
+			<h3>Saldo Hoje</h3>
+			<p>R$ {$SALDO_HOJE}</p>
+		</div>
 
     </div>
 
     <!-- 🔥 FATURAMENTO SEMANA + RESUMO -->
     <div class="grid">
 
-        <div class="bloco">
-            <h3>Faturamento últimos 7 dias</h3>
-            <canvas id="graficoSemana"></canvas>
-        </div>
+	<div class="bloco">
+		<h3>Resumo Financeiro</h3>
+
+		<p><strong>Entradas Mês:</strong> R$ {$ENTRADAS_MES}</p>
+
+		<p><strong>Saídas Mês:</strong> R$ {$SAIDAS_MES}</p>
+
+		<p><strong>Saldo Mês:</strong> R$ {$SALDO_MES}</p>
+
+		<p><strong>Total Serviços:</strong> {$TOTAL_SERVICOS_ANO}</p>
+	</div>
 
         <div class="bloco">
             <h3>Resumo</h3>
@@ -161,11 +178,19 @@ th {
             <canvas id="graficoServicos"></canvas>
         </div>
 
-        <div class="bloco">
-            <h3>Resumo geral</h3>
-            <p><strong>Ano atual:</strong> {$ANO_ATUAL}</p>
-            <p><strong>Total faturado:</strong> R$ {$TOTAL_ANO}</p>
-        </div>
+		<div class="bloco">
+			<h3>Resumo Geral</h3>
+
+			<p><strong>Ano atual:</strong> {$ANO_ATUAL}</p>
+
+			<p><strong>Faturamento Ano:</strong> R$ {$TOTAL_ANO}</p>
+
+			<p><strong>Clientes:</strong> {$TOTAL_CLIENTES}</p>
+
+			<p><strong>Veículos:</strong> {$TOTAL_VEICULOS}</p>
+
+			<p><strong>Serviços:</strong> {$TOTAL_SERVICOS}</p>
+		</div>
 
     </div>
 

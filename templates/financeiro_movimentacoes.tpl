@@ -89,10 +89,6 @@ table.dataTable tbody tr:hover{
 </head>
 <body>
 
-<script>
-	var BASE_URL = '{$pagina->base}';
-</script>
-
 <div class="container">
 
 <h3>Filtros</h3>

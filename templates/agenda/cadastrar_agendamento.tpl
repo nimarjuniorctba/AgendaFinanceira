@@ -33,10 +33,6 @@ button {
 }
 </style>
 
-<script>
-	var BASE_URL = '{$pagina->base}';
-</script>
-
 <h2>Novo Agendamento</h2>
 
 <form method="POST" style="margin-left:10px;">

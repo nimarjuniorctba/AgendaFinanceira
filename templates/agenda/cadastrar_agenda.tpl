@@ -1,6 +1,3 @@
-<script>
-	var BASE_URL = '{$pagina->base}';
-</script>
 
 <h2>Novo Agendamento</h2>
 
