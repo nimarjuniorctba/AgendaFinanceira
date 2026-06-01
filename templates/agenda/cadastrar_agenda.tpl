@@ -90,7 +90,8 @@ $('#formAgenda').submit(function(e){
             alert('Agendado com sucesso!');
             location.reload();
         } else {
-            alert('Erro ao salvar');
+            //alert('Erro ao salvar');
+			alert(res.msg);
             console.log(res);
         }
 
