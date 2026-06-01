@@ -92,7 +92,7 @@ $('#formAgenda').submit(function(e){
         } else {
             //alert('Erro ao salvar');
 			alert(res.msg);
-            console.log(res);
+          //  console.log(res);
         }
 
     }, 'json');
