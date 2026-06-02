@@ -1,10 +1,6 @@
 <?php
 
-require_once 'smarty/config.ini.php';
-require_once 'classes/Autoload.class.php';
 
-$smarty = new Smarty();
-$pdo = MySQL_PDO::conexao();
 
 $acao = $_GET['acao'] ?? '';
 
@@ -13,6 +9,12 @@ $acao = $_GET['acao'] ?? '';
 // SALVAR
 // ======================
 if($acao == 'salvar'){
+    
+    require_once 'smarty/config.ini.php';
+    require_once 'classes/Autoload.class.php';
+
+    $smarty = new Smarty();
+    $pdo = MySQL_PDO::conexao();    
 
     $inicio = (int)$_POST['hora_inicio'];
     $fim    = (int)$_POST['hora_fim'];

@@ -40,7 +40,7 @@
 
 
     <button type="submit">
-        Salvar Configuração
+        Salvar
     </button>
 
 </form>
