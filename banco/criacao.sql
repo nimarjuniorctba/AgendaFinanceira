@@ -53,6 +53,7 @@ CREATE TABLE IF NOT EXISTS agenda.mod_servicos (
 CREATE TABLE IF NOT EXISTS agenda.mod_clientes (
     cli_id INT AUTO_INCREMENT PRIMARY KEY,
     cli_nome VARCHAR(100),
+    cli_telefone VARCHAR(14),	
     cli_email VARCHAR(100),
     cli_status VARCHAR(1) DEFAULT 'a' COMMENT 'a=ativo;i=inativo;e=excluido',
 	cli_dt_cadastro DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP
@@ -203,4 +204,29 @@ INSERT INTO mod_configuracao_agenda (
 ) VALUES (
     1,
     120
+);
+
+
+
+
+CREATE TABLE mod_whatsapp_sessao (
+
+    ses_id INT AUTO_INCREMENT PRIMARY KEY,
+
+    ses_telefone VARCHAR(20) NOT NULL,
+
+    ses_etapa VARCHAR(50) DEFAULT 'menu',
+
+    ses_servico_fk INT NULL,
+    ses_pista_fk INT NULL,
+    ses_horario_fk INT NULL,
+
+    ses_cliente_fk INT NULL,
+    ses_veiculo_fk INT NULL,
+
+    ses_nome_cliente VARCHAR(100) NULL,
+	ses_nome_temp VARCHAR(255) NULL;
+    ses_atendente TINYINT DEFAULT 0,
+
+    ses_dt_atualizacao DATETIME DEFAULT CURRENT_TIMESTAMP
 );

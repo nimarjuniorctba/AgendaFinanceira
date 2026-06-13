@@ -24,7 +24,18 @@ $pagina =   new stdClass();
 $pagina->empresa_nome   = "Sistema AgendaFinanceira";
 $pagina->opcao          = $opcao;
 $pagina->acao           = $acao;
-$pagina->base           = "http://".$_SERVER['HTTP_HOST']."/AgendaFinanceira/";
+//Verifica origem
+$https =
+    (!empty($_SERVER['HTTPS']) && $_SERVER['HTTPS'] != 'off')
+    || ($_SERVER['SERVER_PORT'] ?? 80) == 443
+    || (($_SERVER['HTTP_X_FORWARDED_PROTO'] ?? '') == 'https');
+
+$pagina->base =
+    ($https ? 'https' : 'http')
+    .'://'
+    .$_SERVER['HTTP_HOST']
+    .'/AgendaFinanceira/';
+
 $pagina->upload         = "imagens/uploads/";
 
     switch($opcao){
