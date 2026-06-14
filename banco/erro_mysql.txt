@@ -1,0 +1,3 @@
+mkdir C:\xampp\mysql\data\backup_mysql_db
+copy C:\xampp\mysql\data\mysql\db.* C:\xampp\mysql\data\backup_mysql_db\
+C:\xampp\mysql\bin\aria_chk.exe --recover --force C:\xampp\mysql\data\mysql\db.MAI
